@@ -17,6 +17,10 @@ After deleting worker pod:
 
 After deleting db pod: 
 	eplicas will create new db pod and old db node(db-b54cd94f4-xhwnw) went to terminating state. A new db node container is created with db-b54cd94f4-5xct6. 
-	Now if we update our vote then results are not reflecting in result application. 
+	Now if we update our vote then results are not reflecting in result application. Result pod will use socket Id to connect with dB pod to get a information and 
+	socket id is binding with old dB pod so there is no communication even though we update new votes. 
+Steps to work result Pod: 
+	We can delete result pod and re-creates then application is working fine again. 
+	
 
 

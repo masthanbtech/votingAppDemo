@@ -1,1 +1,22 @@
+Assignment-4: Voting App 
+
+My observations: 
+cluster information. 
+  [root@ip-172-31-14-14 k8s-specifications]# kubectl get all
+  NAME                          READY   STATUS    RESTARTS   AGE
+  pod/db-b54cd94f4-xhwnw        1/1     Running   0          24h
+  pod/redis-868d64d78-kqml8     1/1     Running   0          24h
+
+After deleting voting Pod: 
+	replicas will create new voting pod and its pod name changes from "vote-94849dc97-6sssz" to "vote-94849dc97-7kmv6". 
+	Application is working fine.  
+
+After deleting worker pod:
+	replicas will create new worker pod and old worker node (worker-dd46d7584-s87hz) went to terminating state and deleted from the list after few seconds. 
+  A New worker node container is created with worker-dd46d7584-9cwdj). Application is working fine. 
+
+After deleting db pod: 
+	eplicas will create new db pod and old db node(db-b54cd94f4-xhwnw) went to terminating state. A new db node container is created with db-b54cd94f4-5xct6. 
+	Now if we update our vote then results are not reflecting in result application. 
+
 
